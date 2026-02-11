@@ -9,6 +9,7 @@
     // ----------------------------------------------------------
     // AGENTS — Model assignments
     // ----------------------------------------------------------
+    "plugin": ["opencode-google-antigravity-auth"],
     "agents": {
         // Main orchestrator — Sonnet 4.5 for balanced quality/cost
         "Sisyphus": {
