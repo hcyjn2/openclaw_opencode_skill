@@ -1,0 +1,123 @@
+{
+    "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+    // ============================================================
+    // SLIMMED OH-MY-OPENCODE CONFIG
+    // Use case: Flutter, Web Dev, LLM Applications
+    // Provider: Antigravity (Opus 4.6 / Sonnet 4.5 / Flash 3.0)
+    // Workflow: OpenClaw → Prometheus (plan) → User review → Atlas (execute)
+    // ============================================================
+    // ----------------------------------------------------------
+    // AGENTS — Model assignments
+    // ----------------------------------------------------------
+    "agents": {
+        // Main orchestrator — Sonnet 4.5 for balanced quality/cost
+        "Sisyphus": {
+            "model": "google-antigravity/claude-sonnet-4-5-thinking"
+        },
+        // Planner — generates detailed, actionable plans from rough requirements
+        "Prometheus (Planner)": {
+            "model": "google-antigravity/claude-sonnet-4-5-thinking"
+        },
+        // Executor — runs the plan produced by Prometheus
+        "Atlas": {
+            "model": "google-antigravity/claude-sonnet-4-5-thinking"
+        },
+        // Debugger & strategic advisor — for tough bugs and architecture questions
+        "oracle": {
+            "model": "google-antigravity/claude-sonnet-4-5-thinking"
+        },
+        // Doc lookups & external knowledge — cheap and fast
+        "librarian": {
+            "model": "google-antigravity/gemini-3-flash"
+        },
+        // Codebase exploration & grep — cheap and fast
+        "explore": {
+            "model": "google-antigravity/gemini-3-flash"
+        }
+    },
+    // ----------------------------------------------------------
+    // DISABLED AGENTS — features you don't need
+    // ----------------------------------------------------------
+    "disabled_agents": [
+        "multimodal-looker", // Screenshot/image analysis — not needed
+        "metis", // Pre-planning consultant — you review plans yourself
+        "momus" // Plan reviewer — you review plans yourself
+    ],
+    // ----------------------------------------------------------
+    // CATEGORIES — task delegation presets
+    // ----------------------------------------------------------
+    "categories": {
+        // Frontend/UI tasks — Sonnet 4.5 per your preference
+        "visual-engineering": {
+            "model": "google-antigravity/claude-sonnet-4-5-thinking",
+            "temperature": 0.5,
+            "prompt_append": "Focus on Flutter widget architecture, Material Design 3, and responsive web layouts."
+        },
+        // Backend/logic tasks — Sonnet 4.5
+        "business-logic": {
+            "model": "google-antigravity/claude-sonnet-4-5-thinking",
+            "temperature": 0.1
+        },
+        // Quick/trivial tasks — Flash 3.0 to save costs
+        "quick": {
+            "model": "google-antigravity/gemini-3-flash"
+        },
+        // Low-priority unspecified tasks — Flash 3.0
+        "unspecified-low": {
+            "model": "google-antigravity/gemini-3-flash"
+        },
+        // High-priority unspecified tasks — Sonnet 4.5
+        "unspecified-high": {
+            "model": "google-antigravity/claude-sonnet-4-5-thinking"
+        },
+        // Writing tasks (docs, comments) — Flash 3.0
+        "writing": {
+            "model": "google-antigravity/gemini-3-flash"
+        }
+    },
+    // ----------------------------------------------------------
+    // SISYPHUS AGENT — orchestration settings
+    // ----------------------------------------------------------
+    "sisyphus_agent": {
+        "disabled": false,
+        "default_builder_enabled": false, // Don't need the separate builder
+        "planner_enabled": true, // Keep Prometheus for plan generation
+        "replace_plan": true // Prometheus replaces the default planner
+    },
+    // ----------------------------------------------------------
+    // DISABLED HOOKS — trim overhead
+    // ----------------------------------------------------------
+    "disabled_hooks": [
+        "startup-toast", // Skip the banner on startup
+        "auto-update-checker", // Check updates manually
+        "agent-usage-reminder", // Don't need reminders about agent usage
+        "session-notification", // Not using desktop notifications
+        "interactive-bash-session", // OpenClaw drives non-interactively
+        "non-interactive-env", // Let OpenCode handle this automatically
+        "directory-readme-injector", // Skip injecting README context (saves tokens)
+        "ralph-loop" // Skip this loop detection (todo-enforcer is enough)
+    ],
+    // ----------------------------------------------------------
+    // SKILLS — keep useful ones
+    // ----------------------------------------------------------
+    // playwright and git-master are both kept (defaults)
+    // To disable: "disabled_skills": ["playwright"]
+    // ----------------------------------------------------------
+    // MCPs — keep all three
+    // ----------------------------------------------------------
+    // websearch (Exa), context7 (official docs), grep_app (GitHub code search)
+    // All enabled by default — no overrides needed
+    // ----------------------------------------------------------
+    // GIT MASTER — clean up commit messages
+    // ----------------------------------------------------------
+    "git_master": {
+        "commit_footer": false, // No "Ultraworked with Sisyphus" footer
+        "include_co_authored_by": false // No co-authored-by trailer
+    },
+    // ----------------------------------------------------------
+    // BACKGROUND TASKS — concurrency limits
+    // ----------------------------------------------------------
+    "background_task": {
+        "defaultConcurrency": 5
+    }
+}
