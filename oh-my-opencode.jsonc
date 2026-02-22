@@ -3,37 +3,37 @@
     // ============================================================
     // SLIMMED OH-MY-OPENCODE CONFIG
     // Use case: Flutter, Web Dev, LLM Applications
-    // Provider: Antigravity (Opus 4.6 / Sonnet 4.5 / Flash 3.0)
+    // Provider: OpenAI (GPT-5.3 Codex / GPT-5.3 Codex Spark)
     // Workflow: OpenClaw → Prometheus (plan) → User review → Atlas (execute)
     // ============================================================
     // ----------------------------------------------------------
     // AGENTS — Model assignments
     // ----------------------------------------------------------
-    "plugin": ["opencode-google-antigravity-auth"],
+    "plugin": ["opencode-openai-auth"],
     "agents": {
-        // Main orchestrator — Sonnet 4.5 for balanced quality/cost
+        // Main orchestrator — GPT-5.3 Codex for balanced quality/cost
         "Sisyphus": {
-            "model": "google-antigravity/claude-sonnet-4-5-thinking"
+            "model": "openai/gpt-5.3-codex"
         },
         // Planner — generates detailed, actionable plans from rough requirements
         "Prometheus (Planner)": {
-            "model": "google-antigravity/claude-sonnet-4-5-thinking"
+            "model": "openai/gpt-5.3-codex"
         },
         // Executor — runs the plan produced by Prometheus
         "Atlas": {
-            "model": "google-antigravity/claude-sonnet-4-5-thinking"
+            "model": "openai/gpt-5.3-codex"
         },
         // Debugger & strategic advisor — for tough bugs and architecture questions
         "oracle": {
-            "model": "google-antigravity/claude-sonnet-4-5-thinking"
+            "model": "openai/gpt-5.3-codex"
         },
         // Doc lookups & external knowledge — cheap and fast
         "librarian": {
-            "model": "google-antigravity/gemini-3-flash"
+            "model": "openai/gpt-5.3-codex-spark"
         },
         // Codebase exploration & grep — cheap and fast
         "explore": {
-            "model": "google-antigravity/gemini-3-flash"
+            "model": "openai/gpt-5.3-codex-spark"
         }
     },
     // ----------------------------------------------------------
@@ -48,32 +48,32 @@
     // CATEGORIES — task delegation presets
     // ----------------------------------------------------------
     "categories": {
-        // Frontend/UI tasks — Sonnet 4.5 per your preference
+        // Frontend/UI tasks — GPT-5.3 Codex per your preference
         "visual-engineering": {
-            "model": "google-antigravity/claude-sonnet-4-5-thinking",
+            "model": "openai/gpt-5.3-codex",
             "temperature": 0.5,
             "prompt_append": "Focus on Flutter widget architecture, Material Design 3, and responsive web layouts."
         },
-        // Backend/logic tasks — Sonnet 4.5
+        // Backend/logic tasks — GPT-5.3 Codex
         "business-logic": {
-            "model": "google-antigravity/claude-sonnet-4-5-thinking",
+            "model": "openai/gpt-5.3-codex",
             "temperature": 0.1
         },
-        // Quick/trivial tasks — Flash 3.0 to save costs
+        // Quick/trivial tasks — Codex Spark to save costs
         "quick": {
-            "model": "google-antigravity/gemini-3-flash"
+            "model": "openai/gpt-5.3-codex-spark"
         },
-        // Low-priority unspecified tasks — Flash 3.0
+        // Low-priority unspecified tasks — Codex Spark
         "unspecified-low": {
-            "model": "google-antigravity/gemini-3-flash"
+            "model": "openai/gpt-5.3-codex-spark"
         },
-        // High-priority unspecified tasks — Sonnet 4.5
+        // High-priority unspecified tasks — GPT-5.3 Codex
         "unspecified-high": {
-            "model": "google-antigravity/claude-sonnet-4-5-thinking"
+            "model": "openai/gpt-5.3-codex"
         },
-        // Writing tasks (docs, comments) — Flash 3.0
+        // Writing tasks (docs, comments) — Codex Spark
         "writing": {
-            "model": "google-antigravity/gemini-3-flash"
+            "model": "openai/gpt-5.3-codex-spark"
         }
     },
     // ----------------------------------------------------------
